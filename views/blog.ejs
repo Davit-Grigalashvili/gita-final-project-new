@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog</title>
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/blog.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sen:wght@400..800&display=swap"
+          rel="stylesheet">
+    <link rel="shortcut icon" href="./images/blog-icon.svg" type="image/x-icon">
+</head>
+<body>
+
+<%- include('partials/header', {email: email}); %>
+
+<div class="blog-wrapper container">
+    <div class="recent-blogs">
+        <h3 class="recent-blogs-title">Recent blog posts</h3>
+        <% blogs.splice(0, 6).forEach((blog, index)=>{ %>
+            <div class="recent-blog">
+                <figure>
+                    <a href="/blogs/<%= blog.id %>">
+                        <img class="recent-blog-img" src="/images/thumbnails/normal/<%= index %>.png" alt="thumbnail">
+                    </a>
+                </figure>
+                <div>
+                    <p class="recent-blog-date"><%= blog.formatedDate %></p>
+                </div>
+                <a class="recent-blog-link" href="/blogs/<%= blog.id %>">
+                    <h3 class="recent-blog-title"><%= blog.title.slice(0, 20) %> </h3>
+                    <img src="/images/arrow-up-right-light.svg" alt="arrow-up-right-light">
+                </a>
+                <p class="recent-blogs-content"><%= blog.description.slice(0, 90) %> </p>
+            </div>
+        <% }) %>
+    </div>
+
+    <div class="blog-content">
+        <p class="recent-blog-date"><%= blog.formatedDate %></p>
+        <p class="blog-title"><%= blog.title %></p>
+        <p class="blog-text"><%= blog.content %></p>
+
+
+        <div class="comments-box">
+            <h3 class="comments-title">Comments </h3>
+
+            <!-- ADD COMMENT FORM -->
+            <form class="comment-form" action="/blogs/<%= blog.id %>/comment" method="POST">
+                <textarea class="comments-input" name="comment" required></textarea>
+                <button class="comments-btn" type="submit">Post Comment</button>
+            </form>
+
+
+
+            <div class="comments-list">
+                <% if (blog.comments && blog.comments.length > 0) { %>
+                    <% blog.comments.forEach((comment, commentIndex) => { %>
+                        <div class="comment">
+                            <div class="comment-header">
+                                <span class="comment-author"><%= comment.author %></span>
+                                <span class="comment-date"><%= comment.date %></span>
+                            </div>
+                            <div class="comment-content">
+                                <%= comment.comment %>
+                            </div>
+
+
+                            <button class="reply-toggle" onclick="toggleReplyForm(<%= commentIndex %>)">
+                                Reply
+                            </button>
+
+
+                            <form class="reply-form" id="replyForm<%= commentIndex %>"
+                                  action="/blogs/<%= blog.id %>/comment/<%= commentIndex %>/reply" method="POST">
+                                <textarea class="reply-input" name="reply" required></textarea>
+                                <button class="comments-btn" type="submit">Post Reply</button>
+                            </form>
+
+                            <!-- DISPLAY REPLIES -->
+                            <% if (comment.replies && comment.replies.length > 0) { %>
+                                <div class="replies">
+                                    <% comment.replies.forEach((reply) => { %>
+                                        <div class="reply">
+                                            <div class="reply-header">
+                                                <span class="reply-author"><%= reply.author %></span>
+                                                <span class="reply-date"><%= reply.date %></span>
+                                            </div>
+                                            <div class="reply-content">
+                                                <%= reply.reply %>
+                                            </div>
+                                        </div>
+                                    <% }) %>
+                                </div>
+                            <% } %>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p style="color: #666; font-style: italic;">No comments yet. Be the first to comment!</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer'); %>
+
+<script>
+    function toggleReplyForm(commentIndex) {
+        const form = document.getElementById('replyForm' + commentIndex);
+        if (form.style.display === 'none' || form.style.display === '') {
+            form.style.display = 'block';
+            form.querySelector('textarea').focus();
+        } else {
+            form.style.display = 'none';
+        }
+    }
+</script>
+
+
+</div>
+</div>
+
+
+</div>
+
+<%- include('partials/footer'); %>
+
+</body>
+</html>

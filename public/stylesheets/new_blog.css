@@ -1,0 +1,128 @@
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.new-blog-wrapper {
+    margin: 0 auto;
+}
+
+.title {
+    color: #1A1A1A;
+    text-align: center;
+    font-family: Inter, sans-serif;
+    font-size: 120px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-top: 1px solid rgba(0, 0, 0, 0.34);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.34);
+    margin-top: 50px;
+}
+
+@media (max-width: 1024px) {
+    .title {
+        font-size: 70px;
+    }
+}
+
+@media (max-width: 576px) {
+    .title {
+        font-size: 60px;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 38px;
+    margin-top: 30px !important;
+}
+
+@media (max-width: 1024px) {
+    form {
+        width: 800px;
+    }
+}
+
+@media (max-width: 576px) {
+    form {
+        margin-top: 50px;
+    }
+}
+
+input, textarea {
+    border-radius: 2px;
+    border: 1px solid rgba(109, 110, 118, 0.50);
+    padding: 24px;
+    color: #232536;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    width: 955px;
+    outline: none;
+    resize: none;
+    font-family: Inter, sans-serif;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #232536;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1440px) {
+    input, textarea {
+        width: 755px;
+    }
+}
+
+@media (max-width: 1024px) {
+    input, textarea {
+        width: 100%;
+    }
+}
+
+button {
+    width: 955px;
+    background-color: #1A1A1A;
+    color: #FFF;
+    text-align: center;
+    font-family: Sen, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+    padding: 20px 24px;
+    box-sizing: content-box;
+    border: 1px solid #1A1A1A;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 2px;
+}
+
+button:hover {
+    background-color: #FFF;
+    color: #1A1A1A;
+}
+
+@media (max-width: 1440px) {
+    button {
+        width: 755px;
+    }
+}
+
+@media (max-width: 1024px) {
+    button {
+        width: 100%;
+    }
+}
+
+

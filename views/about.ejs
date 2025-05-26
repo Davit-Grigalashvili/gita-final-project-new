@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Blog | About Me</title>
+    <link rel="stylesheet" href="./stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sen:wght@400..800&display=swap"
+          rel="stylesheet">
+    <link rel="shortcut icon" href="./images/blog-icon.svg" type="image/x-icon">
+</head>
+<body>
+
+<%- include('partials/header', {email: email}); %>
+
+<div class="container about-me-wrapper">
+    <h2 class="title">John Doe</h2>
+    <figure class="banner-wrapper">
+        <img class="banner" src="/images/about-me-banner.png" alt="about-me-banner">
+    </figure>
+    <div class="about-me-content">
+        <section>
+            <h3>About Me</h3>
+            <p>As a passionate and experienced UI designer, I am dedicated to creating intuitive and engaging user
+                experiences that meet the needs of my clients and their users. I have a strong understanding of design
+                principles and a proficiency in design tools, and I am comfortable working with cross-functional teams
+                to
+                bring projects to fruition. I am confident in my ability to create designs that are both visually
+                appealing
+                and functional, and I am always looking for new challenges and opportunities to grow as a designer.</p>
+        </section>
+        <section>
+            <h3>Skills:</h3>
+            <ul>
+                <li>Extensive experience in UI design, with a strong portfolio of completed projects</li>
+                <li>Proficiency in design tools such as Adobe Creative Suite and Sketch</li>
+                <li>Excellent visual design skills, with a strong understanding of layout, color theory, and
+                    typography
+                </li>
+                <li>Ability to create wireframes and prototypes to communicate design concepts</li>
+                <li>Strong communication and collaboration skills, with the ability to work effectively with
+                    cross-functional
+                    teams
+                </li>
+                <li>Experience conducting user research and gathering insights to inform design decisions</li>
+                <li>Proficiency in HTML, CSS, and JavaScript</li>
+            </ul>
+        </section>
+        <section>
+            <h3>Experience:</h3>
+            <ul>
+                <li>5 years of experience as a UI designer, working on a variety of projects for clients in the tech and
+                    retail industries
+                </li>
+                <li>Led the design of a successful e-commerce website, resulting in a 25% increase in online sales</li>
+                <li>Created wireframes and prototypes for a mobile banking app, leading to a 20% increase in app usage
+                </li>
+                <li>Conducted user research and usability testing to inform the redesign of a healthcare provider's
+                    website,
+                    resulting in a 15% increase in website traffic
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3>Education:</h3>
+            <ul>
+                <li>Bachelor's degree in Graphic Design</li>
+                <li>Certified User Experience Designer (CUED)</li>
+            </ul>
+        </section>
+    </div>
+
+</div>
+
+
+<%- include('partials/footer'); %>
+
+</body>
+</html>

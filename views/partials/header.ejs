@@ -1,0 +1,52 @@
+<header class="container">
+    <div class="username">
+        <a href="/">
+            <p>
+                <%= email ? email.split('@')[0] : null %>
+            </p>
+        </a>
+    </div>
+    <div class="nav-wrapper">
+        <nav class="main-nav">
+            <ul class="nav-list-wrapper">
+                <li><a class="nav-link" href="/">Blog</a></li>
+                <li><a class="nav-link" href="/about">About</a></li>
+                <li><a class="nav-link" href="/newsletter">Newsletter</a></li>
+                <% if (email) { %>
+                    <li><a class="nav-link" href="/blogs/new">Create New Blog</a></li>
+                    <li><a style="color: #6e0000" class="nav-link" href="/logout">Logout</a></li>
+                <% } %>
+            </ul>
+        </nav>
+
+        <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a class="nav-link" href="/">Blog</a>
+        <a class="nav-link" href="/">Projects</a>
+        <a class="nav-link" href="/about">About</a>
+        <a class="nav-link" href="/">Newsletter</a>
+        <figure class="close-btn-wrapper" id="close-btn-wrapper">
+            <img src="/images/close-icon.svg" alt="">
+        </figure>
+    </div>
+</header>
+
+<script>
+    const burger = document.getElementById('burger');
+    const closeBtn = document.getElementById('close-btn-wrapper');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    burger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('show');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('show');
+    });
+</script>
