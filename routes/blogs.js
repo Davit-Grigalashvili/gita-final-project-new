@@ -123,7 +123,7 @@ router.post('/:blogId/comment', requireAuth, async function (req, res, next) {
             replies: []
         };
 
-        // Add comment to blog
+
         blog.comments.push(newComment);
         await blog.save();
 
@@ -134,7 +134,7 @@ router.post('/:blogId/comment', requireAuth, async function (req, res, next) {
     }
 });
 
-// ADD REPLY ROUTE
+
 router.post('/:blogId/comment/:commentIndex/reply', requireAuth, async function (req, res, next) {
     const {blogId, commentIndex} = req.params;
     const {reply} = req.body;
@@ -150,14 +150,14 @@ router.post('/:blogId/comment/:commentIndex/reply', requireAuth, async function 
             return res.redirect(`/blogs/${blogId}`);
         }
 
-        // Create new reply object matching your schema
+
         const newReply = {
             author: author,
             date: new Date().toLocaleString(),
             reply: reply.trim()
         };
 
-        // Add reply to specific comment
+        
         blog.comments[commentIndex].replies.push(newReply);
         await blog.save();
 
