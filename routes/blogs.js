@@ -115,7 +115,7 @@ router.post('/:blogId/comment', requireAuth, async function (req, res, next) {
             return res.redirect('/blogs');
         }
 
-        // Create new comment object matching your schema
+        
         const newComment = {
             comment: comment.trim(),
             author: author,
